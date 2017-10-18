@@ -99,7 +99,7 @@
 		},
 		methods:{
 		   nextPage(){
-		   	location.href="#hjEdit?years="+this.years+'&month='+this.month+'&size='+this.sizeCode+'&type='+this.type+'&price='+this.price+'&skuId='+this.skuId;
+		   	location.href="#tlEdit?years="+this.years+'&month='+this.month+'&size='+this.sizeCode+'&type='+this.type+'&price='+this.price+'&skuId='+this.skuId;
 		   },
 		   selects(){
 			var _this = this
@@ -138,24 +138,23 @@
 				var type = this.trimStr(this.type);
 				var imgUrl = selectTl.init.selectK(size,type);
 				this.imgUrl = imgUrl;
-				this.skuName = "台历."+ size+'.'+type;
-				this.templateCode = 'taili_'+this.sizeCode;
-				this.skuCode = 'taili.'+this.sizeCode+'.'+this.colorCode;
-				sessionStorage.setItem('taili_skuName',this.skuName);
-				sessionStorage.setItem('taili_templateCode',this.templateCode);
-				sessionStorage.setItem('taili_editCnfName',this.templateCode + '_single');
-				sessionStorage.setItem('taili_skuCode',this.skuCode);
+				this.skuName = "合集."+ size+'.'+type;
+				this.templateCode = 'heji_'+this.sizeCode;
+				this.skuCode = 'heji.'+this.sizeCode+'.'+this.colorCode;
+				sessionStorage.setItem('heji_skuName',this.skuName);
+				sessionStorage.setItem('heji_templateCode',this.templateCode);
+				sessionStorage.setItem('heji_editCnfName',this.templateCode + '_single');
+				sessionStorage.setItem('heji_skuCode',this.skuCode);
 				var paramsJson = {
 						"category": this.getFromSession("category"),
 						"parameter" : this.skuCode
 					};
 				 	//请求价格:			
 				Api.sku.querySku(paramsJson).then((res)=>{ 
-					console.log(res)
 					 this.price = res.data.price;
 					 //this.bbsSlsectDate.price = res.data.price;
 					 this.skuId = res.data.skuId;
-					 sessionStorage.setItem("TlPrice",this.price)
+					 sessionStorage.setItem("HjPrice",this.price)
 				})
 			},
 			 editorImage(jsons){ 
@@ -174,7 +173,6 @@
 		},
 		mounted(){
 			this.addToSession();
-			
 			this.size = this.trimStr($('.size:nth-child(1)').text());
 			this.type = this.trimStr($('.type:nth-child(1)').text());
 			this.sizeCode = $('.size:nth-child(1)').attr('data-code');

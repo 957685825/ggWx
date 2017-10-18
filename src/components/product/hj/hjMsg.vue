@@ -49,8 +49,8 @@
 		</div>
 		
 	<div id="btn_box">
-    	<router-link  to=''>
-        <div class="made_btn" id="art_album" @click='fun' style="color: #333;">开始定制</div>
+    	<router-link  to='hjSelect?category=heji'>
+        <div class="made_btn" id="art_album" style="color: #333;">开始定制</div>
     </router-link>   
     </div>
 	</div>

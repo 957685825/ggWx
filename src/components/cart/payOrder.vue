@@ -88,7 +88,8 @@
         		}
 			var jsons = {
 				userDbId:localStorage.getItem("userDbId"),
-				cars:this.car
+				cars:this.car,
+				addressDbId:this.addressData.dbId
 			}
 			//如果session有channelCode 就存入
 			if (sessionStorage.getItem("channelCode")) {
@@ -146,6 +147,7 @@
            		if(res.data.length > 0){
            			this.addressData = res.data[0];
            			this.addresBool = true;
+           			console.log(this.addressData.dbId,'地址....')
            		} 
            },err=>{
             	Toast('数据请求错误');

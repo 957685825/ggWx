@@ -29,7 +29,7 @@
 			</li>
 		</ul>
 		<div id="btn_box">
-		    	<a href="http://builder.artup.com/test/magnet-index-20170920.html">
+		    	<a href="#cthSelect?category=citiehua">
 		        <div class="made_btn" id="art_album" style="color: #333;">开始定制</div>
 		    </a>   
 	    </div>

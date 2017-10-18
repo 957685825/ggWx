@@ -25,7 +25,10 @@ import bbsSelect from '@/components/product/bbs/bbsSelect.vue'
 import bbsMsg from '@/components/product/bbs/bbsMsg.vue'
 //合集介绍页
 import hjMsg from '@/components/product/hj/hjMsg.vue'
-
+//合集选择
+import hjSelect from '@/components/product/hj/hjSelect.vue'
+//合集编辑
+import hjEdit from '@/components/product/hj/hjSelect.vue'
 //画册
 import huaceMsg from '@/components/product/huace/huaceMsg.vue'
 //海报介绍
@@ -34,8 +37,10 @@ import hbMsg from '@/components/product/hb/hbMsg.vue'
 import khMsg from '@/components/product/kh/khMsg.vue'
 //台历介绍
 import tlMsg from '@/components/product/tl/tlMsg.vue'
+
 //磁铁画介绍
 import cthMsg from '@/components/product/cth/cthMsg.vue'
+import cthSelect from '@/components/product/cth/cthSelect.vue'
 
 import huaceSelect from '@/components/product/huace/huaceSelect.vue'
 
@@ -155,9 +160,16 @@ let router =  new vueRouter({
 		},
 		{
 			path:'/tlMsg', component:tlMsg //台历介绍
+		},{
+			path:'/hjEdit', component:hjEdit //台历介绍
+		},{
+			path:'/hjSelect', component:hjSelect //台历介绍
 		},
 		{
 			path:'/cthMsg', component:cthMsg //台历介绍
+			
+		},{
+			path:'/cthSelect', component:cthSelect //台历介绍
 			
 		},
 		{

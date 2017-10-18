@@ -167,7 +167,7 @@
 	           oldImgData:'',
 	           skuId:'',
 	           updataImgStr:'',
-	           tittle:'艺术框画'
+	           tittle:'故宫框画'
 			}
 		},
 		components:{  
@@ -352,23 +352,20 @@
 			   		this.customParams = {
 			   			thumbnailScale:this.imgData.thumbnailScale,
 			   			dpi:this.imgData.dpi
-			   		}	
-			   		
-			   		this.editData.customParams = this.customParams;
-			   		
+			   		}				   		
+			   		this.editData.customParams = this.customParams;			   		
 			   		this.editData.actions.minDpiHeight = this.imgData.minDpiHeight;
 					this.editData.actions.minDpiWidth = this.imgData.minDpiWidth;
 					this.editData.actions.thumbnailScale = this.imgData.thumbnailScale;
 					this.editData.actions.dpi = this.imgData.dpi;
-
 			   		this.editorImage(this.editData)
 			   }
 			},
 			editFinish(data){
 				if(data.postData.dpi== 'false'){
-					$(".reportNavEdt").show();
+					$(".reportNavEdt").show()
 				}else{
-					$(".reportNavEdt").hide();	
+					$(".reportNavEdt").hide()
 				}
 				$('#showImg').attr('src',data.imgData);
 				$('#showImg').css(
@@ -426,13 +423,13 @@
 	        linkGo(){
 		        	if(this.finishWork == true){
 		        		this.finishWork = !this.finishWork;
-		        		this.tittle =  '艺术框画';
+		        		this.tittle =  '故宫框画';
 		        		if((typeof this.workEdit.editPicture) == 'string'){
 			        		this.workEdit.editPicture = JSON.parse(this.workEdit.editPicture);
 			        	}
 		        	}else{
 					MessageBox({
-					  title: '艺术框画',
+					  title: '故宫框画',
 					  message: '返回将清空所有数据是否确认返回?',
 					  showCancelButton: true
 					}).then((res)=>{
