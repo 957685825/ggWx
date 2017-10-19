@@ -18,16 +18,17 @@
 		</div>
 		<div class="tlEditTop">
 			<span>{{size}}</span>
-			<span>{{statDt}}</span>
+			<!--<span>{{statDt}}</span>-->
 		</div>
 		<div class="max">
 			<div class="tlEditContent" v-for="(item,index) in taili">
-				<div :class="cssName">
-
-					<img @click="imgshow(index)"  class="updateBtn"  :src="imgHost+'static/img/p_sucai_02.jpg'"  alt="" />
-					<div class="myImgBox" >
-						<img class="showImg" v-tap='{methods:updataImg,indexs:index}' src="" attrImg='' alt="" />
-						<span class="editSpan"  v-tap='{methods:editer,indexs:index}'>编辑</span>
+				<div class="border_box">
+					<div :class="cssName">
+						<img @click="imgshow(index)"  class="updateBtn"  :src="imgHost+'static/img/p_sucai_02.jpg'"  alt="" />
+						<div class="myImgBox" >
+							<img class="showImg" v-tap='{methods:updataImg,indexs:index}' src="" attrImg='' alt="" />
+							<span class="editSpan"  v-tap='{methods:editer,indexs:index}'>编辑</span>
+						</div>
 					</div>
 				</div>
 				<img :class="imgName" v-if="item.imgUrl" :src="item.imgUrl" alt="" />
@@ -41,11 +42,11 @@
 			<div class="price">
 				价格：<span><b>¥</b>{{price}}</span>
 			</div> 
-			<div  v-model="popupVisible" v-tap='{methods:selects}' class="bgrq">
+			<!--<div  v-model="popupVisible" v-tap='{methods:selects}' class="bgrq">
 				变更日期
 				 <input type="hidden" name="su_id" id="suId" style="opacity: 0;" value=""> 
 				 <input type="hidden" name="wei_id" id="weiId" value="" style="opacity: 0;">
-			</div>
+			</div>-->
 			<div v-bind:hidden="finishWork == true" v-tap="{methods:nextFn}" class="crectOrder">
 				下一步
 			</div>
@@ -84,7 +85,7 @@
 				defDbId:'f80b4c98-15ca-4da0-b482-0c8270c2eac6',
 				statDt:'',
 				extraPostData:{
-					category :"taili",
+					category :"heji",
 					client :'mobile',
 					channel:'',
 					userDbId :"", 
@@ -153,7 +154,7 @@
 					      	 }
 							
 		                }
-		        });
+		        })
 		  	 },
 
 			imgshow(index){ //显示上传
@@ -208,7 +209,6 @@
 			   }
 			},
 			 getImg(val){ //获取组件图片
-			 
 			 	if(val.dpi== 'false'){
 					$(".reportNavEdt").show();
 				}else{
@@ -291,34 +291,22 @@
 	            )
 	      },
 		fuoundData(year,month){
-			 	this.taili=[{
-					code:"封面"
-				}];
-			 	for(var i=0; i<12; i++){
-			 		
-			 		if((parseInt(month)+i) > 12){
-			 			var obj = {
-			 				code:(parseInt(year)+1)+'年'+((parseInt(month)+i) - 12)+"月",
-			 				year:(parseInt(year)+1),
-			 				month:((parseInt(month)+i) - 12)
-			 			}
-			 			this.taili.push(obj);
-			 		}else{
-			 			var obj = {
-			 				code:year+'年'+(parseInt(month)+i) +"月",
-			 				year:year,
-			 				month:(parseInt(month)+i)
-			 			}
-			 			this.taili.push(obj);
-			 		}
+			 	this.taili=[];
+			 	for(var i=0; i<10; i++){
+					
+					var obj = {
+					    code:'第'+(i+1)+'页'
+					}
+                    this.taili.push(obj)
 			 	}
-			 	this.statDt = this.taili[1].code;
+			 	console.log(this.taili)
+			 	//this.statDt = this.taili[1].code;
 			 	//return codeArr;
 			 },
 			nextFn(){
 				 var arrMap = []; //台历图片
 				 var textMap = [];
-				 if(this.ImgHashMap.keys().length < 13){
+				 if(this.ImgHashMap.keys().length < 2){
 				 	Toast('图片上传不完整!');
 				 	return;
 				 }
@@ -326,10 +314,11 @@
 				 $('.updateBtn').hide();
 				 $('.reportNavEdt').hide();
 				 
-				this.tittle = '台历预览'
+				this.tittle = '合集预览'
 				 for (var i = 0; i < this.ImgHashMap.keys().length; i++) {
 					var picObject = this.ImgHashMap.getvalue(this.ImgHashMap.keys()[i]);
 					//console.log(picObject)
+					
 					if(picObject.thumbnailImageUrl){
 						arrMap.push(this.ImgHashMap.getvalue(this.ImgHashMap.keys()[i]));
 					}else{
@@ -358,7 +347,7 @@
 
                 $('.editSpan').hide();
 				Indicator.open({text: '作品保存中...',spinnerType: 'fading-circle'}); 
-               	
+               	console.log(this.workEdit)
                 Api.work.workEdit(this.workEdit).then((res)=>{
                 		if(res.data.code == 'success'){
                 			this.finishWork = !this.finishWork;
@@ -366,21 +355,19 @@
                 			$('#nt').hide();
                 			this.extraCode = res.data.extraCode;
                 			this.workEdit.thumbnailImageUrl=res.data.commandTitle;
-                			Indicator.close();
-                			if($('.tl_img_195X145').attr('src')){
-                				$('.tl_img_195X145').css({
-				        			'display':'block'
-				        		})
-                			}else{
-                				for(var i=1; i<	this.taili.length; i++ ){
-			               		this.taili[i].imgUrl = ''+Api.HOST+'static/img/taili/taili_'+this.size+'/'+this.taili[i].year+this.taili[i].month+'.jpg'
-			               	}
-//			              	  
-			              	 $('.max').append("<img class=\""+this.imgName+"\" src=\""+Api.HOST+"static/img/taili/taili_"+this.size+"/end.jpg\" />");
-                				
-                			}
                 			
-
+                			Indicator.close();
+//              			if($('.tl_img_195X145').attr('src')){
+//              				$('.tl_img_195X145').css({
+//				        			'display':'block'
+//				        		})
+//              			}else{
+//              				for(var i=1; i<	this.taili.length; i++ ){
+//			               		this.taili[i].imgUrl = ''+Api.HOST+'static/img/taili/taili_'+this.size+'/'+this.taili[i].year+this.taili[i].month+'.jpg'
+//			               	}		              	  
+//			              	 $('.max').append("<img class=\""+this.imgName+"\" src=\""+Api.HOST+"static/img/taili/taili_"+this.size+"/end.jpg\" />");
+//              				
+//              			}
                 		} 
                 },err=>{
                 			Indicator.close();
@@ -419,12 +406,6 @@
 			},
 	        linkGo(){
 	        	if(this.finishWork == true){
-	        		$('.tl_img_195X145').css({
-	        			'display':'none'
-	        		})
-	        		$('.tl_img_145X195').css({
-	        			'display':'none'
-	        		})
 	        		$('.editSpan').show();
 	        		$('#nt').show();
 	        		$('#gc').hide();
@@ -445,8 +426,8 @@
 			}
 		},
 		mounted(){
-			this.years = this.$route.query.years;
-			this.month = this.$route.query.month;
+//			this.years = this.$route.query.years;
+//			this.month = this.$route.query.month;
 			this.size = this.$route.query.size;
 			this.type = this.$route.query.type;
 			this.price = this.$route.query.price;

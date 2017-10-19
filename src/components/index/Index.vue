@@ -84,7 +84,7 @@
 					</router-link>
 				</li>
 				<li> 
-					<router-link to="hjMsg?category=taili">
+					<router-link to="hjMsg?category=heji">
 						<i style="font-size: 3.1875rem;" class="icon iconfont">&#xe7ca;</i>
 						<p>故宫影像合集</p>
 					</router-link>

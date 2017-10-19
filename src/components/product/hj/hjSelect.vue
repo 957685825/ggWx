@@ -1,55 +1,54 @@
 <template>
 	<div id="bbs-select">
 		<mt-header title="选择产品">
-		  <router-link to="" href="javascript:window.history.go(-1);" v-tap slot="left">
+		  <router-link to="" v-tap="{ methods:linkGo }"  slot="left">
 		    <mt-button icon="back">返回</mt-button>
 		  </router-link>
-		</mt-header>		
+		</mt-header>
 		<div class="bbsImg bbsImgTl">
 			<img v-model="imgUrl" :src="imgUrl"/>
 		</div>
-		
 
-		<dl class="slect_dl">
-			<dt>
-				选择日期
-			</dt>
-			<dd>
-				<!-- v-tap='{methods:selects}'-->
-				<div v-model="popupVisible" v-tap='{methods:selects}'  class="dd_slect date dd_slectWidth">
-					 <input type="hidden" name="su_id" id="suId" style="opacity: 0;" value=""> {{years}}年
-				</div>
-				<div v-model="popupVisible" v-tap='{methods:selects}' class="dd_slect date dd_slectWidth ">
-					<input type="hidden" name="wei_id" id="weiId" value="" style="opacity: 0;">   {{month}}月
-				</div>
-				
-			</dd>
-		</dl>
+		<!--<dl class="slect_dl">-->
+			<!--<dt>-->
+				<!--选择日期-->
+			<!--</dt>-->
+			<!--<dd>-->
+				<!--&lt;!&ndash; v-tap='{methods:selects}'&ndash;&gt;-->
+				<!--<div v-model="popupVisible" v-tap='{methods:selects}'  class="dd_slect date dd_slectWidth">-->
+					 <!--<input type="hidden" name="su_id" id="suId" style="opacity: 0;" value=""> {{years}}年-->
+				<!--</div>-->
+				<!--<div v-model="popupVisible" v-tap='{methods:selects}' class="dd_slect date dd_slectWidth ">-->
+					<!--<input type="hidden" name="wei_id" id="weiId" value="" style="opacity: 0;">   {{month}}月-->
+				<!--</div>-->
+				<!---->
+			<!--</dd>-->
+		<!--</dl>-->
 		<dl class="slect_dl">
 			<dt>
 				选择尺寸
 			</dt>
 			<dd>
-				<div data-code= '195X145'  v-tap='{methods:updateSize}' class="dd_slect size dd_slectWidth dd_active">
-					195mmX145mm
+				<div data-code= '500X350'  v-tap='{methods:updateSize}' class="dd_slect size dd_slectWidth dd_active">
+					500mmX350mm
 				</div>
-				<div data-code= '145X195' v-tap='{methods:updateSize}' class="dd_slect size dd_slectWidth ">
-					145mmX195mm
-				</div>
+				<!--<div data-code= '145X195' v-tap='{methods:updateSize}' class="dd_slect size dd_slectWidth ">-->
+					<!--145mmX195mm-->
+				<!--</div>-->
 				
 			</dd>
 		</dl>
 		<dl class="slect_dl">
 			<dt>
-				选择颜色
+				数量
 			</dt>
 			<dd>
-				<div data-code= 'white' v-tap='{methods:updateType}'  class="dd_slect type dd_slectWidth dd_active">
-					白色
+				<div data-code= '10' v-tap='{methods:updateType}'  class="dd_slect type dd_slectWidth dd_active">
+					10
 				</div>
-				<div data-code= 'coffee' v-tap='{methods:updateType}' class="dd_slect type dd_slectWidth ">
-					咖啡色
-				</div>
+				<!--<div data-code= 'coffee' v-tap='{methods:updateType}' class="dd_slect type dd_slectWidth ">-->
+					<!--咖啡色-->
+				<!--</div>-->
 				
 			</dd>
 		</dl>
@@ -93,13 +92,16 @@
 				popupVisible:false,
 				size:'',//选择台历的尺寸
 				type:'',//选择的颜色类型
-				imgUrl:'',//显示台历样式的图片数据
+				imgUrl:'http://image2.artup.com/static/img/heji/hj.jpg',//显示台历样式的图片数据
 				skuId:''
 			}
 		},
 		methods:{
+            linkGo(){
+                this.vurRouterGo();
+			},
 		   nextPage(){
-		   	location.href="#tlEdit?years="+this.years+'&month='+this.month+'&size='+this.sizeCode+'&type='+this.type+'&price='+this.price+'&skuId='+this.skuId;
+		   	location.href="#hjEdit?years="+this.years+'&month='+this.month+'&size='+this.sizeCode+'&type='+this.type+'&price='+this.price+'&skuId='+this.skuId;
 		   },
 		   selects(){
 			var _this = this
@@ -137,7 +139,7 @@
 				var size = this.trimStr(this.size);
 				var type = this.trimStr(this.type);
 				var imgUrl = selectTl.init.selectK(size,type);
-				this.imgUrl = imgUrl;
+				//this.imgUrl = imgUrl;
 				this.skuName = "合集."+ size+'.'+type;
 				this.templateCode = 'heji_'+this.sizeCode;
 				this.skuCode = 'heji.'+this.sizeCode+'.'+this.colorCode;
@@ -150,7 +152,7 @@
 						"parameter" : this.skuCode
 					};
 				 	//请求价格:			
-				Api.sku.querySku(paramsJson).then((res)=>{ 
+				Api.sku.querySku(paramsJson).then((res)=>{
 					 this.price = res.data.price;
 					 //this.bbsSlsectDate.price = res.data.price;
 					 this.skuId = res.data.skuId;

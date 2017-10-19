@@ -28,7 +28,7 @@ import hjMsg from '@/components/product/hj/hjMsg.vue'
 //合集选择
 import hjSelect from '@/components/product/hj/hjSelect.vue'
 //合集编辑
-import hjEdit from '@/components/product/hj/hjSelect.vue'
+import hjEdit from '@/components/product/hj/hjEdit.vue'
 //画册
 import huaceMsg from '@/components/product/huace/huaceMsg.vue'
 //海报介绍
