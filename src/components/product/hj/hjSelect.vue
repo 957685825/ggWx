@@ -8,7 +8,6 @@
 		<div class="bbsImg bbsImgTl">
 			<img v-model="imgUrl" :src="imgUrl"/>
 		</div>
-
 		<!--<dl class="slect_dl">-->
 			<!--<dt>-->
 				<!--选择日期-->
@@ -141,7 +140,7 @@
 				var imgUrl = selectTl.init.selectK(size,type);
 				//this.imgUrl = imgUrl;
 				this.skuName = "合集."+ size+'.'+type;
-				this.templateCode = 'heji_'+this.sizeCode;
+				this.templateCode = 'heji_'+this.sizeCode+'_'+this.type;
 				this.skuCode = 'heji.'+this.sizeCode+'.'+this.colorCode;
 				sessionStorage.setItem('heji_skuName',this.skuName);
 				sessionStorage.setItem('heji_templateCode',this.templateCode);
@@ -151,7 +150,7 @@
 						"category": this.getFromSession("category"),
 						"parameter" : this.skuCode
 					};
-				 	//请求价格:			
+				//请求价格:			
 				Api.sku.querySku(paramsJson).then((res)=>{
 					 this.price = res.data.price;
 					 //this.bbsSlsectDate.price = res.data.price;

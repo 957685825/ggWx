@@ -94,7 +94,7 @@
 				type:'',
 				sheetV:false, //组件的开关
 				imgData:'',
-				defDbId:'6afedcf6-b0e4-447d-afd9-c70449f42f50',
+				defDbId:'a6dc8ee8-79e9-4d07-be10-42275c5337ae',
 				sizeCode:'',
 				typeCode:'',
 				skuCode:'',

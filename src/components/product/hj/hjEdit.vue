@@ -82,7 +82,7 @@
 				month:'',
 				size:'',
 				sheetV:false, //组件的开关
-				defDbId:'f80b4c98-15ca-4da0-b482-0c8270c2eac6',
+				defDbId:'5ea5e91b-21fd-481f-ab11-c767b19eed53',
 				statDt:'',
 				extraPostData:{
 					category :"heji",
@@ -146,9 +146,9 @@
 		                    _this.month = selectTwoObj.value
 		                    _this.fuoundData(_this.years,_this.month);
 		                    for(var i=1; i<_this.textHashMap.keys().length; i++){
-					      	 	var textMapVal =  _this.textHashMap.getvalue(i+1);
+					      	 	var textMapVal =  _this.textHashMap.getvalue(i+1)
 					      	 	//var mon = this.month + i -1;
-					      	 	textMapVal.content = this.taili[i].code;
+					      	 	textMapVal.content = this.taili[i].code
 					      	    _this.textHashMap.putvalue(i+1,textMapVal)
 					      	 	console.log( _this.textHashMap)
 					      	 }
@@ -160,9 +160,7 @@
 			imgshow(index){ //显示上传
 				this.sheetV =!this.sheetV;
 				this.extraPostData.picPage = index+1;
-				this.updataImgStr = 'upLoad';
-
-				
+				this.updataImgStr = 'upLoad';	
 			},
 			updataImg(params){
 				if(this.finishWork == false){
@@ -299,7 +297,6 @@
 					}
                     this.taili.push(obj)
 			 	}
-			 	console.log(this.taili)
 			 	//this.statDt = this.taili[1].code;
 			 	//return codeArr;
 			 },
@@ -307,22 +304,22 @@
 				 var arrMap = []; //台历图片
 				 var textMap = [];
 				 if(this.ImgHashMap.keys().length < 2){
-				 	Toast('图片上传不完整!');
+				 	Toast('图片上传不完整!')
 				 	return;
 				 }
-				 $('.bgrq').hide();
-				 $('.updateBtn').hide();
-				 $('.reportNavEdt').hide();
+				 $('.bgrq').hide()
+				 $('.updateBtn').hide()
+				 $('.reportNavEdt').hide()
 				 
 				this.tittle = '合集预览'
 				 for (var i = 0; i < this.ImgHashMap.keys().length; i++) {
-					var picObject = this.ImgHashMap.getvalue(this.ImgHashMap.keys()[i]);
+					var picObject = this.ImgHashMap.getvalue(this.ImgHashMap.keys()[i])
 					//console.log(picObject)
 					
 					if(picObject.thumbnailImageUrl){
-						arrMap.push(this.ImgHashMap.getvalue(this.ImgHashMap.keys()[i]));
+						arrMap.push(this.ImgHashMap.getvalue(this.ImgHashMap.keys()[i]))
 					}else{
-						Toast('第'+(picObject.page)+'页图片上传不完整!');
+						Toast('第'+(picObject.page)+'页图片上传不完整!')
 					}
                     //if (this.ImgHashMap.getvalue(this.ImgHashMap.keys()[i])) {
                     //    arrMap.push(this.ImgHashMap.getvalue(this.ImgHashMap.keys()[i]));
@@ -334,12 +331,12 @@
 					}
 					
 				}
-				this.workEdit.sku = this.skuName;
-				this.workEdit.skuCode = this.skuCode;
+				this.workEdit.sku = this.skuName
+				this.workEdit.skuCode = this.skuCode
 				if(this.skuId == undefined || this.skuId == 'undefined'){
 					this.workEdit.skuId ='';
 				}else{
-					this.workEdit.skuId = this.skuId;
+					this.workEdit.skuId = this.skuId
 				}
 				
 				this.workEdit.editPicture = JSON.stringify(arrMap);

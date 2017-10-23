@@ -8,35 +8,35 @@
   				data:[
   						{
   							Size:'300mmX400mm',
-  							width:'8.43716rem',
-  							height:'10.5464rem',
-  							smallBoxWidth:'6rem',
-  							smallBoxHeight:'8.1rem',
+  							width:'8.5rem',
+  							height:'11.17rem',
+  							smallBoxWidth:'8rem',
+  							smallBoxHeight:'10.67rem',
   							imgUrl:"url("+Api.HOST+"static/img/citiehua/300x400-yms.jpg)"
   							
   						},
 						{
   							Size:"400mmX300mm",
-  							width:'11.1792rem',
-  							height:'15.6087rem',
-  							smallBoxWidth:'9rem',
-  							smallBoxHeight:'13.64rem',
+  							width:'11.17rem',
+  							height:'8.5rem',
+  							smallBoxWidth:'10.67rem',
+  							smallBoxHeight:'8rem',
   							imgUrl:"url("+Api.HOST+"static/img/citiehua/400x300-yms.jpg)"
   						},	
   						{
   							Size:"400mmX600mm",
-  							width:'10.5464rem',
-  							height:'10.5464rem',
-  							smallBoxWidth:'7.5464rem',
-  							smallBoxHeight:'7.5464rem',
+  							width:'8.5rem',
+  							height:'12.44rem',
+  							smallBoxWidth:'8rem',
+  							smallBoxHeight:'11.94rem',
   							imgUrl:"url("+Api.HOST+"static/img/citiehua/400x600-yms.jpg)"
   						},
   						{
   							Size:"600mmX400mm",
-  							width:'10.5464rem',
-  							height:'8.43716rem',
-  							smallBoxWidth:'8em',
-  							smallBoxHeight:'5.88rem',
+  							width:'12.44rem',
+  							height:'8.5rem',
+  							smallBoxWidth:'11.94rem',
+  							smallBoxHeight:'8rem',
   							imgUrl:"url("+Api.HOST+"static/img/citiehua/600x400-yms.jpg)"
 
   						}
@@ -48,35 +48,35 @@
   				data:[
   						{
   							Size:'300mmX400mm',
-  							width:'8.43716rem',
-  							height:'10.5464rem',
-  							smallBoxWidth:'6rem',
-  							smallBoxHeight:'8.1rem',
+  							width:'8.5rem',
+  							height:'11.17rem',
+  							smallBoxWidth:'8rem',
+  							smallBoxHeight:'10.67rem',
   							imgUrl:"url("+Api.HOST+"static/img/citiehua/300x400-hs.jpg)"
   							
   						},
 						{
   							Size:"400mmX300mm",
-  							width:'11.1792rem',
-  							height:'15.6087rem',
-  							smallBoxWidth:'9rem',
-  							smallBoxHeight:'13.64rem',
+  							width:'11.17rem',
+  							height:'8.5rem',
+  							smallBoxWidth:'10.67rem',
+  							smallBoxHeight:'8rem',
   							imgUrl:"url("+Api.HOST+"static/img/citiehua/400x300-hs.jpg)"
   						},	
   						{
   							Size:"400mmX600mm",
-  							width:'10.5464rem',
-  							height:'10.5464rem',
-  							smallBoxWidth:'7.5464rem',
-  							smallBoxHeight:'7.5464rem',
+  							width:'8.5rem',
+  							height:'12.44rem',
+  							smallBoxWidth:'8rem',
+  							smallBoxHeight:'11.94rem',
   							imgUrl:"url("+Api.HOST+"static/img/citiehua/400x600-hs.jpg)"
   						},
   						{
   							Size:"600mmX400mm",
-  							width:'10.5464rem',
-  							height:'8.43716rem',
-  							smallBoxWidth:'8em',
-  							smallBoxHeight:'5.88rem',
+  							width:'12.44rem',
+  							height:'8.5rem',
+  							smallBoxWidth:'11.94rem',
+  							smallBoxHeight:'8rem',
   							imgUrl:"url("+Api.HOST+"static/img/citiehua/600x400-hs.jpg)"
 
   						}
