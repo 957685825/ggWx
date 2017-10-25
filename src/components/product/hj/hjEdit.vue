@@ -195,8 +195,9 @@
 		   			picPage:params.indexs+1,
 		   			dpi:this.ImgHashMap.getvalue(params.indexs+1).actions.dpi
 		   		}
-		   		editData.actions.minDpiHeight = this.ImgHashMap.getvalue(params.indexs+1).actions.minDpiHeight;
-				editData.actions.minDpiWidth = this.ImgHashMap.getvalue(params.indexs+1).actions.minDpiWidth;
+//		   		editData.actions.minDpiHeight = this.ImgHashMap.getvalue(params.indexs+1).actions.minDpiHeight;
+//				editData.actions.minDpiWidth = this.ImgHashMap.getvalue(params.indexs+1).actions.minDpiWidth;
+				editData.actions = this.ImgHashMap.getvalue(params.indexs+1).actions
 				editData.actions.thumbnailScale = this.ImgHashMap.getvalue(params.indexs+1).actions.thumbnailScale;
 				editData.actions.dpi = this.ImgHashMap.getvalue(params.indexs+1).actions.dpi;
 				this.editorImage(editData);
