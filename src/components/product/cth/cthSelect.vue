@@ -166,9 +166,9 @@
 				this.updataImgStr = 'upLoad';
 			},
 			nextGoCar(){
-				$('.reportNavEdt').hide();
-				this.tittle = '故宫磁铁画预览';
+				$('.reportNavEdt').hide();		
 				if($("#showImg").attr('src')){
+					this.tittle = '故宫磁铁画预览';
 					Indicator.open({text: '作品保存中...',spinnerType: 'fading-circle'}); 
 					this.workEdit.defDbId = this.defDbId;
 					if(this.editData.actions.thumbnailScale){

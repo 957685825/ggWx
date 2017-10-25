@@ -17,7 +17,7 @@
 			！图片像素不足，会导致打印模糊，建议更换图片
 		</div>
 		<div class="tlEditTop">
-			<span>{{size}}</span>
+			<!--<span>{{size}}</span>-->
 			<!--<span>{{statDt}}</span>-->
 		</div>
 		<div class="max">
@@ -183,7 +183,6 @@
 	                }
 	          	}
 			   if ($(params.event.target).hasClass("editSpan")) {
-
 				editData.oSrc='';
 				editData.oSrc = this.ImgHashMap.getvalue(params.indexs+1).thumbnailImageUrl;
 				editData.picNum = params.indexs+1;
@@ -200,7 +199,6 @@
 				editData.actions.minDpiWidth = this.ImgHashMap.getvalue(params.indexs+1).actions.minDpiWidth;
 				editData.actions.thumbnailScale = this.ImgHashMap.getvalue(params.indexs+1).actions.thumbnailScale;
 				editData.actions.dpi = this.ImgHashMap.getvalue(params.indexs+1).actions.dpi;
-				console.log(this.ImgHashMap.getvalue(params.indexs+1))
 				this.editorImage(editData);
 			  
 			  
@@ -303,7 +301,7 @@
 			nextFn(){
 				 var arrMap = []; //台历图片
 				 var textMap = [];
-				 if(this.ImgHashMap.keys().length < 2){
+				 if(this.ImgHashMap.keys().length < 10){
 				 	Toast('图片上传不完整!')
 				 	return;
 				 }
