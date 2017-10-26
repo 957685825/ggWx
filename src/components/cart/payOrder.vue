@@ -82,6 +82,7 @@
         methods: {
         	
         	gotoOrderPay(){
+        		Indicator.open({text: '数据连接中...',spinnerType: 'fading-circle'});
         		if(this.addresBool != true){
         			Toast('地址不能为空');
         			return;
@@ -104,6 +105,7 @@
 					//alert(res.data.orderDbId)
 					 var payUrl = "#orderStatus?paymentType=wx&addressId="+this.addressData.dbId+"&dbId="+orderDbId+"&userDbId="+userDbId+"&openId="+openId+'&client=mobile&sorce=payOrder'; 
           			 location.href = payUrl;
+          			 Indicator.close();
 
 				}
 			},err=>{

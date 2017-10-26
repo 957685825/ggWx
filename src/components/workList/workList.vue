@@ -22,7 +22,7 @@
 			  <li v-tap='{methods:updataCheck,indexs:index}' v-for="(item,index) in worklist" style="margin-top: 0.53rem;">
 			  	<div class="content">
 					<ul>
-						<li ><p :class="item.isOK ? 'circle':'circle circleNone' "><i v-bind:hidden="item.isOK == false" class="icon iconfont">&#xe639;</i></p></li>
+						<li v-bind:hidden="noDelet"><p :class="item.isOK ? 'circle':'circle circleNone' "><i v-bind:hidden="item.isOK == false" class="icon iconfont">&#xe639;</i></p></li>
 						<li>
 							<img :src="item.thumbnailImageUrl">
 						</li> 
@@ -66,7 +66,8 @@
 				tapStyle:false,
 				worklist:[],
 				loading:false,
-				workPage:0 //第0页
+				workPage:0, //第0页
+				noDelet:false
 			}
 		},
 		methods:{
@@ -91,6 +92,7 @@
 						console.log(res)
 					})
 					this.tapStyle = false;
+					this.noDelet = false
 				}else{
 					paraJson.status = 2;
 					Api.work.workList(paraJson).then((res)=>{
@@ -98,6 +100,8 @@
 						console.log(res)
 					})
 					this.tapStyle = true;
+					this.noDelet = true
+					
 				}
 				if(this.tapStyle == true){
 					$('#deleteBtn').hide();

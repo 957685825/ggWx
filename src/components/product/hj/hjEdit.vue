@@ -292,7 +292,7 @@
 			 	for(var i=0; i<10; i++){
 					
 					var obj = {
-					    code:'第'+(i+1)+'页'
+					    code:'第'+(i+1)+'张'
 					}
                     this.taili.push(obj)
 			 	}
