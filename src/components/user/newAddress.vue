@@ -111,7 +111,7 @@
 				 *如果路由上有dbid是编辑地址
 				 *else就是新建
 				 * */
-				if(this.$route.query.dbId){
+				if(this.$route.query.dbId != ''){
 					var jsons={
 						name:this.datas.name,
 						mobile:this.datas.mobile,

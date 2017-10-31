@@ -36,9 +36,9 @@
 			</div>
 			
 		</div>
-		<div class="diaocha">
+		<!--<div class="diaocha">
 			<a href="http://testbuilder.artup.com/test/diaocha/wx/index.html"><i>📃</i>问题反馈</a>
-		</div>
+		</div>-->
 		<div class="swipeDiv" style="width: 100%;height: 400px;">
 			<mt-swipe  :auto="4000">
 				<!--<mt-swipe-item>
@@ -138,36 +138,33 @@ export default {
 		}
     },
     mounted(){
-
     		Indicator.open({
-		  		text: '加载中...',
-		  		spinnerType: 'fading-circle'
-			}); 
-			 
-			if (JSON.stringify(this.$route.query)!="{}") {  
-				this.fetchData();		
-			}else{
-				if (localStorage.getItem('userDbId') && localStorage.getItem('userDbId') != null && localStorage.getItem('userDbId') != '' && localStorage.getItem('userDbId') != 'null') {
-				} else {
-					 //重新登录函数
-					 Api.user.getUserDbId().then(res=>{
-					 //请求微信授权 
-					  	window.location.href=res.data.authorizeCodeUrl
-					  })
-				}
+	  		text: '加载中...',
+	  		spinnerType: 'fading-circle'
+		}); 
+		if (JSON.stringify(this.$route.query)!="{}") {  
+			this.fetchData();		
+		}else{
+			if (localStorage.getItem('userDbId') && localStorage.getItem('userDbId') != null && localStorage.getItem('userDbId') != '' && localStorage.getItem('userDbId') != 'null') {
+			} else {
+				 //重新登录函数
+				 Api.user.getUserDbId().then(res=>{
+				 //请求微信授权 
+				  	window.location.href=res.data.authorizeCodeUrl
+				  })
 			}
-
-			//首页请求的数据
-			Api.Index.indexImg().then(res=>{ 
+		}
+		//首页请求的数据
+		Api.Index.indexImg().then(res=>{ 
 //				var obj = {
 //					client:'mobile',
 //					imgUrl:'http://image2.artup.com/resources/static/pc/images/gqfhtz.jpg'
 //				}
 //				res.data.data.unshift(obj)
-				this.indexImg = res.data.data;
-				console.log(this.indexImg)
-				Indicator.close();
-			})
+			this.indexImg = res.data.data;
+			console.log(this.indexImg)
+			Indicator.close();
+		})
 	},
 	 watch:{
         $route:'fetchData'

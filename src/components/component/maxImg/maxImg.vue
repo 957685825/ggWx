@@ -948,21 +948,21 @@
 					}
 					var oImgData = JSON.parse(res.data.data.editPicture);
 					var editTxt = JSON.parse(res.data.data.editTxt);
-					//			console.log(editTxt)
+					//console.log(editTxt)
 					if(res.data.data.lomo) {
 						var oImgLomo = JSON.parse(res.data.data.lomo);
 					}
 					var strbbs = 'bbs'
 					//先加载板式让图片回显到页面
 					for(var i = 0; i < oImgData.length; i++) {
-						//				 		console.log(oImgData[i].editCnfIndex)
+						//console.log(oImgData[i].editCnfIndex)
 						var strbb = strbbs + oImgData[i].editCnfIndex;
 						//动态修改模版的板式
-						//						 console.log(oThis.dataImg.imgArrTypeData)
+						//console.log(oThis.dataImg.imgArrTypeData)
 						oThis.typeHtml.splice(oImgData[i].page - 1, 1, oThis.dataImg.imgArrTypeData[strbb])
 					}
 					for(var i = 0; i < editTxt.length; i++) {
-						//				 		console.log(editTxt[i].editCnfIndex)
+						//console.log(editTxt[i].editCnfIndex)
 						var strbb = strbbs + editTxt[i].editCnfIndex;
 						//动态修改模版的板式
 						oThis.typeHtml.splice(editTxt[i].page - 1, 1, oThis.dataImg.imgArrTypeData[strbb])
